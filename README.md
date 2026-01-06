@@ -27,23 +27,21 @@ This project is created as part of an **automation testing assessment**.
 ## 📁 Project Structure
 
 registration-form-automation/
-│
-├── web-source/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── automation-tests/
-│   ├── src/
-│   │   └── test/java/automation/
-│   │       └── RegistrationTest.java
-│   │
-│   ├── pom.xml
-│   ├── test-output/
-│   ├── success-state.png
-│   └── error-state.png
-│
-└── README.md
+|
+|-- web-source/
+|   |-- index.html
+|   |-- style.css
+|   |-- script.js
+|
+|-- automation-tests/
+|   |-- src/test/java/automation/RegistrationTest.java
+|   |-- pom.xml
+|   |-- test-output/
+|   |-- success-state.png
+|   |-- error-state.png
+|
+|-- README.md
+
 
 ---
 
