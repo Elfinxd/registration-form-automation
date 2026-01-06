@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <h1><i class="fas fa-cube"></i> Registration form</h1>
+            </div>
+            <div class="step-indicator">
+                <span class="active">01. Identity</span>
+                <span>/</span>
+                <span class="active">02. Location</span>
+                <span>/</span>
+                <span class="active">03. Security</span>
+            </div>
+        </header>
+
+        <form id="registrationForm" onsubmit="handleSubmit(event)">
+            
+            <!-- Column 1: Personal Info -->
+            <div class="col-panel">
+                <h2><i class="fas fa-user-astronaut"></i> Personal Data</h2>
+                
+                <div class="input-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div style="position:relative">
+                        <input type="text" id="firstname" placeholder=" " required>
+                        <label for="firstname" style="left:10px">First Name</label>
+                        <i class="fas fa-check valid-check" style="right:10px"></i>
+                    </div>
+                    <div style="position:relative">
+                        <input type="text" id="lastname" placeholder=" " required>
+                        <label for="lastname" style="left:10px">Last Name</label>
+                        <i class="fas fa-check valid-check" style="right:10px"></i>
+                    </div>
+                </div>
+                <span class="error" id="nameError"></span>
+
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email Address</label>
+                    <i class="fas fa-check valid-check"></i>
+                </div>
+                <span class="error" id="emailError"></span>
+
+                <div class="input-group">
+                    <input type="tel" id="phone" placeholder=" " required>
+                    <label for="phone">Phone Number</label>
+                    <i class="fas fa-check valid-check"></i>
+                </div>
+                <span class="error" id="phoneError"></span>
+
+                <div class="input-group">
+                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dob" placeholder=" " required>
+                    <label for="dob">Date of Birth</label>
+                </div>
+                <span class="error" id="dobError"></span>
+
+                <div class="radio-group">
+                    <label class="radio-item">
+                        <input type="radio" name="gender" value="male" required> Male
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="gender" value="female"> Female
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="gender" value="other"> Other
+                    </label>
+                </div>
+                <span class="error" id="genderError"></span>
+            </div>
+
+            <!-- Column 2: Address -->
+            <div class="col-panel">
+                <h2><i class="fas fa-map-marker-alt"></i> Location</h2>
+
+                <div class="input-group">
+                    <input type="text" id="address" placeholder=" " required>
+                    <label for="address">Street Address</label>
+                </div>
+                <span class="error" id="addressError"></span>
+
+                <div class="input-group">
+                    <select id="country" required onchange="this.setAttribute('valid', 'true')">
+                        <option value="" disabled selected></option>
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ca">Canada</option>
+                        <option value="in">India</option>
+                        <option value="de">Germany</option>
+                        <option value="au">Australia</option>
+                        <option value="fr">France</option>
+                        <option value="jp">Japan</option>
+                    </select>
+                    <label>Country</label>
+                </div>
+                <span class="error" id="countryError"></span>
+
+                <div class="input-group" id="state-group" style="display: none;">
+                    <select id="state" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                    <label>State</label>
+                </div>
+                <span class="error" id="stateError"></span>
+
+                <div class="input-group">
+                    <select id="city" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                    <label>City</label>
+                </div>
+                <span class="error" id="cityError"></span>
+
+                <div class="input-group">
+                    <input type="text" id="zip" placeholder=" " required>
+                    <label for="zip">Zip Code</label>
+                </div>
+                <span class="error" id="zipError"></span>
+            </div>
+
+            <!-- Column 3: Security & Submit -->
+            <div class="col-panel">
+                <h2><i class="fas fa-shield-alt"></i> Security</h2>
+
+                <div class="input-group">
+                    <input type="password" id="password" placeholder=" " required>
+                    <label for="password">Password</label>
+                </div>
+                <span class="error" id="passwordError"></span>
+
+                <div class="input-group">
+                    <input type="password" id="confirm_password" placeholder=" " required>
+                    <label for="confirm_password">Confirm Password</label>
+                    <i class="fas fa-eye toggle-password" data-target="confirm_password"></i>
+                </div>
+                <span class="error" id="confirm_passwordError"></span>
+
+                <div id="password-strength" style="height: 4px; background: #333; border-radius: 2px; margin-top: -5px; overflow: hidden;">
+                    <div id="strength-bar" style="width: 0%; height: 100%; transition: 0.3s;"></div>
+                </div>
+                <small id="strengthText" style="color: var(--text-muted); font-size: 0.75rem;">Min 8 chars, 1 uppercase, 1 number</small>
+
+                <div class="action-area">
+                    <label class="terms">
+                        <input type="checkbox" required>
+                        <span>I agree to the Terms of Service and Privacy Policy.</span>
+                    </label>
+                    <span class="error" id="termsError"></span>
+
+                    <button type="submit" class="submit-btn" disabled>
+                        Create Account <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

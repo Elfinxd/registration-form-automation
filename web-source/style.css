@@ -1,0 +1,343 @@
+/* ===== Variables & Reset ===== */
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f0f0f 0%, #151515 50%, #1e1e1e 100%);
+    --glass-bg: rgba(30, 30, 30, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --accent-gradient: linear-gradient(45deg, #00d4ff, #090979);
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --input-bg: rgba(0, 0, 0, 0.3);
+    --danger: #ff4757;
+    --success: #2ed573;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    height: 100vh; /* Critical for no-scroll */
+    overflow: hidden; /* Prevents body scroll */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ===== Background Animation ===== */
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: -1;
+    animation: orbFloat 20s infinite linear;
+}
+.orb-1 { width: 300px; height: 300px; background: #00d4ff; top: -50px; left: -50px; }
+.orb-2 { width: 400px; height: 400px; background: #090979; bottom: -100px; right: -100px; animation-delay: -5s; }
+
+@keyframes orbFloat {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 50px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* ===== Main Container ===== */
+.app-container {
+    width: 95%;
+    max-width: 1400px;
+    height: 90vh; /* fits comfortably within screen */
+    margin: 0 auto;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: scaleIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ===== Header ===== */
+header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.step-indicator {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.step-indicator span.active {
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+/* ===== Grid Layout (The No-Scroll Magic) ===== */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 Equal Columns */
+    gap: 20px;
+    padding: 20px;
+    height: 100%;
+    overflow: hidden; /* Ensure form doesn't scroll internally */
+}
+
+.col-panel {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    overflow-y: auto; /* Fallback for very short screens */
+}
+
+/* Scrollbar styling for panels */
+.col-panel::-webkit-scrollbar { width: 4px; }
+.col-panel::-webkit-scrollbar-thumb { background: #4a4a4a; border-radius: 4px; }
+
+h2 {
+    font-size: 1.1rem;
+    color: #00d4ff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== Input Groups ===== */
+.input-group {
+    position: relative;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+    outline: none;
+}
+
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: 0.3s ease;
+    font-size: 0.9rem;
+    background: transparent;
+    padding: 0 4px;
+}
+
+/* Floating Label Logic */
+.input-group input:focus,
+.input-group input:not(:placeholder-shown),
+.input-group select:focus,
+.input-group select:valid,
+.input-group textarea:focus,
+.input-group textarea:not(:placeholder-shown) {
+    border-color: #00d4ff;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group select:focus ~ label,
+.input-group select:valid ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: 0;
+    font-size: 0.75rem;
+    color: #00d4ff;
+    background: #1e1e1e; /* Match panel bg to hide line */
+    border-radius: 4px;
+}
+
+/* TextArea specifics */
+textarea {
+    resize: none;
+    height: 80px;
+}
+.input-group textarea ~ label { top: 20px; }
+
+/* Gender Radio Custom */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    background: var(--input-bg);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+}
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.radio-item input {
+    accent-color: #00d4ff;
+    transform: scale(1.2);
+}
+
+/* ===== Footer / Submit Area (Col 3 Bottom) ===== */
+.action-area {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.terms input {
+    margin-top: 3px;
+    accent-color: #00d4ff;
+}
+
+button.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+}
+
+button.submit-btn:active {
+    transform: translateY(0);
+}
+
+button.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Validation Styles */
+.valid-check {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--success);
+    opacity: 0;
+    transition: 0.3s;
+}
+input:valid ~ .valid-check { opacity: 1; }
+
+/* Password Toggle */
+.toggle-password {
+    position: absolute;
+    right: 40px; /* Leave space for valid-check */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+.toggle-password:hover {
+    color: var(--text-main);
+}
+
+/* Password Mismatch Indicator */
+.input-group.mismatch input {
+    border-color: #ff4757 !important;
+    box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.2) !important;
+}
+
+/* Error Styles */
+.error {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+    text-align: left;
+}
+
+/* Animation Keyframes */
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Responsive Fallback (Mobile) ===== */
+@media (max-width: 1024px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+    .app-container {
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+    }
+    form {
+        grid-template-columns: 1fr; /* Stack columns */
+        overflow: visible;
+        height: auto;
+    }
+    .col-panel {
+        height: auto;
+        overflow: visible;
+    }
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-01-06T10:32:50 IST" name="Default suite" finished-at="2026-01-06T10:33:23 IST" duration-ms="32760">
+    <groups>
+    </groups>
+    <test started-at="2026-01-06T10:32:50 IST" name="Default test" finished-at="2026-01-06T10:33:23 IST" duration-ms="32760">
+      <class name="automation.RegistrationTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:32:50 IST" name="setup" finished-at="2026-01-06T10:32:53 IST" duration-ms="2377" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="countryChange_shouldUpdateStates()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:32:53 IST" name="countryChange_shouldUpdateStates" finished-at="2026-01-06T10:32:55 IST" duration-ms="2821" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- countryChange_shouldUpdateStates -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:32:55 IST" name="tearDown" finished-at="2026-01-06T10:32:56 IST" duration-ms="253" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:32:56 IST" name="setup" finished-at="2026-01-06T10:32:56 IST" duration-ms="659" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="passwordStrength_shouldUpdateCorrectly()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:32:56 IST" name="passwordStrength_shouldUpdateCorrectly" finished-at="2026-01-06T10:33:01 IST" duration-ms="4933" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- passwordStrength_shouldUpdateCorrectly -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:01 IST" name="tearDown" finished-at="2026-01-06T10:33:01 IST" duration-ms="231" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:01 IST" name="setup" finished-at="2026-01-06T10:33:02 IST" duration-ms="661" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="stateChange_shouldUpdateCities()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:02 IST" name="stateChange_shouldUpdateCities" finished-at="2026-01-06T10:33:06 IST" duration-ms="3823" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stateChange_shouldUpdateCities -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:06 IST" name="tearDown" finished-at="2026-01-06T10:33:06 IST" duration-ms="219" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:06 IST" name="setup" finished-at="2026-01-06T10:33:07 IST" duration-ms="643" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="submitWithAllValidData_shouldSucceed()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:07 IST" name="submitWithAllValidData_shouldSucceed" finished-at="2026-01-06T10:33:12 IST" duration-ms="5235" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitWithAllValidData_shouldSucceed -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:12 IST" name="tearDown" finished-at="2026-01-06T10:33:12 IST" duration-ms="227" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:12 IST" name="setup" finished-at="2026-01-06T10:33:13 IST" duration-ms="645" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="submitWithoutLastName_shouldShowError()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:13 IST" name="submitWithoutLastName_shouldShowError" finished-at="2026-01-06T10:33:17 IST" duration-ms="4042" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitWithoutLastName_shouldShowError -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:17 IST" name="tearDown" finished-at="2026-01-06T10:33:17 IST" duration-ms="230" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:17 IST" name="setup" finished-at="2026-01-06T10:33:18 IST" duration-ms="647" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="wrongConfirmPassword_shouldShowError()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:18 IST" name="wrongConfirmPassword_shouldShowError" finished-at="2026-01-06T10:33:23 IST" duration-ms="4846" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- wrongConfirmPassword_shouldShowError -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.RegistrationTest@4ec4f3a0]" started-at="2026-01-06T10:33:23 IST" name="tearDown" finished-at="2026-01-06T10:33:23 IST" duration-ms="208" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- automation.RegistrationTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
