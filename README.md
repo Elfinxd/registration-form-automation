@@ -25,7 +25,7 @@ This project is created as part of an **automation testing assessment**.
 ---
 
 ## 📁 Project Structure
-
+```
 registration-form-automation/
 |
 |-- web-source/
@@ -41,7 +41,7 @@ registration-form-automation/
 |   |-- error-state.png
 |
 |-- README.md
-
+```
 
 ---
 
